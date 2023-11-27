@@ -1,16 +1,5 @@
 
-
-// export default class Rectangle {
-//   constructor(side1, side2) {
-//     this.side1 = side1;
-//     this.side2 = side2;
-//   }
-
-//   getArea() {
-//     return this.side1 * this.side2;
-//   }
-// }
-
+//COUNT WITH RECURSION
 const coinsCount = (moneyAmount) => {
   if (isNaN(moneyAmount)) {
     return "Please Enter a number";
@@ -40,15 +29,15 @@ const coinsCount = (moneyAmount) => {
     return "";
   }
 }
-   // }
-    // else if (moneyAmount / 0.05 >= 1) {
-    //   const nickels = Math.floor(moneyAmount / .05);
-    //   return `${nickels} nickels ` + coinsCount(moneyAmount - nickels * 0.05);
-    // }
 
-    // else if (moneyAmount / 0.01 >= 1) {
-    //   const pennies = Math.floor(moneyAmount / .01);
-    //   return `${pennies} pennies ` + coinsCount(moneyAmount - pennies * 0.01);
-    // }
-
-    
+//USING CLOSURE
+const coinClosure = (moneyAmount) => {
+  const cents = Math.round(moneyAmount * 100);
+  const quarters = Math.floor(cents / 25);
+  const dimes = Math.floor((cents - quarters * 25) / 10);
+  const nickels = Math.floor((cents - (quarters * 25) - (dimes * 10)) / 5); 
+  const pennies = Math.floor(cents - (quarters * 25) - (dimes * 10) - (nickels * 5)); 
+  return function totalCount() {
+    return `${quarters} quarters, ${dimes} dimes, ${nickels} nickels, ${pennies} pennies`;
+  }
+}
