@@ -1,8 +1,8 @@
-# (Application Name)
+# Coin Counter Functional
 
-#### (Brief Description of Application)
+#### Basic vanila Js  intro to functional programming and state
 
-#### By (Your Name Here)
+#### By Christopher Davila
 
 ## Technologies Used
 
